@@ -6,10 +6,11 @@ class Solution {
                 a++;
             }else{
                 if(nums[i]<0){
-                    b++;
-                }
+                b++;
             }
         }
-        return Math.max(a,b);
+        }
+        int max=Math.max(a,b);
+        return max;
     }
 }
