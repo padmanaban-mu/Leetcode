@@ -9,7 +9,8 @@ class Solution {
         }
     }
     Collections.sort(list);
-    Collections.sort(list, Collections.reverseOrder());
+    Collections.sort(list,Collections.reverseOrder());
+
     if(list.size()>=3){
         return list.get(2);
     }
