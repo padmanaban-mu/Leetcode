@@ -1,18 +1,12 @@
 class Solution {
     public int climbStairs(int n) {
-        int first=0;
-        int second=1;
-        int next;
-        int i=0;
-        while(i<n){
-            if(i<=1){
-               next =i;
-            }
-            next=first+second;
-            first=second;
-            second=next;
-            i++;
+        int a=0;
+        int b=1;
+        for(int i=0;i<n;i++){
+            int c=a+b;
+            a=b;
+            b=c;
         }
-        return second;
+        return b;
     }
 }
