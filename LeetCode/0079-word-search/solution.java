@@ -16,7 +16,7 @@ class Solution {
         return false;
     }
     public static boolean findSolution(int i,int j,char[][]board,String word,boolean[][] soln,int index){
-        if(i<0 ||i>=m ||j<0 ||j>=n ||!(word.contains(board[i][j]+"")) || soln[i][j]==true){
+        if(i<0 ||i>=m ||j<0 ||j>=n|| soln[i][j]==true){
             return false;
         }
         if(board[i][j]!=word.charAt(index)){
