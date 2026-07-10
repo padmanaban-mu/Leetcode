@@ -4,17 +4,18 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         list.clear();
         ans.clear();
-        findSolution(nums,0);
-        return ans;
+      
+	    findSolution(0,nums);
+	   return ans;
     }
-    public static void findSolution(int nums[],int index){
-        // if(!ans.contains(list)){
-            ans.add(new ArrayList<>(list));
-       // }
-        for(int i=index;i<nums.length;i++){
-            list.add(nums[i]);
-            findSolution(nums,i+1);
-            list.remove(list.size()-1);
-        }
-    }
+	public static void findSolution(int index,int nums[]){
+	    if(index==nums.length){
+	    ans.add(new ArrayList<>(list));
+	    return;
+	    }
+	    list.add(nums[index]);
+	        findSolution(index+1,nums);
+	        list.remove(list.size()-1);
+	        findSolution(index+1,nums);
+	    }
 }
