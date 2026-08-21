@@ -1,19 +1,15 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        ArrayList<Integer> list = new ArrayList<>();
+        int left=1;
+        int right=1;
 
-        list.add(nums[0]);
-
-        for(int i = 1; i < nums.length; i++) {
-            if(nums[i] != nums[i - 1]) {
-                list.add(nums[i]);
+       while(right<nums.length){
+            if(nums[right]!=nums[left-1]){
+                nums[left]=nums[right];
+                left++;
             }
-        }
-
-        for(int i = 0; i < list.size(); i++) {
-            nums[i] = list.get(i);
-        }
-
-        return list.size();
-    }
+            right++;
+       }
+       return left;
+}
 }
