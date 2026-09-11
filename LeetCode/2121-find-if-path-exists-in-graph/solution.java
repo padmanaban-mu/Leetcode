@@ -1,10 +1,8 @@
 class Solution {
         static ArrayList<ArrayList<Integer>>ans=new ArrayList<>();
-        static ArrayList<Integer>list=new ArrayList<>();
         static boolean visited[];
     public boolean validPath(int n, int[][] edges, int source, int destination) {
     ans.clear();
-    list.clear();
         for(int i=0;i<n;i++){
             ans.add(new ArrayList<>());
         }
@@ -16,19 +14,21 @@ class Solution {
             ans.get(u).add(v);
             ans.get(v).add(u);
         }
-        dfs(source);
-        if(!list.contains(destination)){
-            return false;
+        return dfs(source,destination);
         }
-        return true;
-        }
-        public static void dfs(int node){
+        public static boolean dfs(int node,int end){
             visited[node]=true;
-            list.add(node);
+            if(node==end){
+                return true;
+            }
+            
             for(int neighbour:ans.get(node)){
                 if(!visited[neighbour]){
-                    dfs(neighbour);
+                    if(dfs(neighbour,end)){
+                        return true;
+                    }
                 }
             }
+            return false;
         }
     }
