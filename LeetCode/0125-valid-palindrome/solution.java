@@ -1,26 +1,26 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        String temp="";
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            if(ch>='A' && ch<='Z'){
-                temp+=(char)(ch+32);
-            }
-            else if(ch>='a' && ch<='z'){
-                temp+=ch;
-            }
-            else if(ch>='0' && ch<='9'){
-                temp+=ch;
-            }
+        
+        
+       int left=0;
+       int right=s.length()-1;
+       while(left<right){
+        char ch1=s.charAt(left);
+        char ch2=s.charAt(right);
+        if(!((ch1>='A' && ch1<='Z') ||(ch1>='a' && ch1<='z')|| (ch1>='0' && ch1<='9'))){
+            left++;
+            continue;
         }
-        String rev="";
-        for(int i=temp.length()-1;i>=0;i--){
-            char ch=temp.charAt(i);
-            rev+=ch;
+        if(!((ch2>='A' && ch2<='Z') ||(ch2>='a' && ch2<='z')|| (ch2>='0' && ch2<='9'))){
+           right--;
+            continue;
         }
-        if(temp.equals(rev)){
-            return true;
+        if(Character.toLowerCase(ch1)!=Character.toLowerCase(ch2)){
+            return false;
         }
-        return false;
+        left++;
+        right--;
+       }
+       return true;
     }
 }
