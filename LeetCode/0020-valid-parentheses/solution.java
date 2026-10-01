@@ -1,26 +1,36 @@
 class Solution {
-    public boolean isValid(String s) {
-   Stack<Character>stack=new Stack<>();
-   for(int i=0;i<s.length();i++){
-    char ch=s.charAt(i);
-    if(ch=='('||ch=='{'||ch=='['){
-        stack.push(ch);
-    }else{
-        if(stack.isEmpty()){
-            return false;
+   public boolean isValid(String s) {
+    int len=s.length();
+    if(len%2!=0){
+        return false;
+    }
+   
+    char stack[]=new char[len/2];
+    int head=0;
+    for(char ch:s.toCharArray()){
+        if(ch=='('){
+      if(head>=len/2){
+        return false;
+      }
+            stack[head++]=')';
+        }else if(ch=='{'){
+      if(head>=len/2){
+        return false;
+      }
+            stack[head++]='}';
         }
-        char top=stack.pop();
-        if(ch==')' && top!='('){
-            return false;
-        }
-        if(ch=='}' && top!='{'){
-            return false;
-        }
-        if(ch==']' && top!='['){
-            return false;
+        else if(ch=='['){
+      if(head>=len/2){
+        return false;
+      }
+            stack[head++]=']';
+        }else {
+            if(head==0||stack[--head]!=ch){
+                return false;
+            }
         }
     }
+    return head==0;
    }
-   return stack.isEmpty();
-    }
 }
+        
