@@ -14,7 +14,8 @@ class Solution {
             ans.get(u).add(v);
             ans.get(v).add(u);
         }
-        return dfs(source,destination);
+       // return dfs(source,destination);
+       return bfs(n,source,destination);
         }
         public static boolean dfs(int node,int end){
             visited[node]=true;
@@ -26,6 +27,25 @@ class Solution {
                 if(!visited[neighbour]){
                     if(dfs(neighbour,end)){
                         return true;
+                    }
+                }
+            }
+            return false;
+        }
+        public static boolean bfs(int n,int node,int end){
+            boolean visited[]=new boolean[n];
+            Queue<Integer>queue=new LinkedList<>();
+            queue.add(node);
+            visited[node]=true;
+            while(!queue.isEmpty()){
+                int current=queue.poll();
+                if(current==end){
+                    return true;
+                }
+                for(int i:ans.get(current)){
+                    if(!visited[i]){
+                        visited[i]=true;
+                        queue.add(i);
                     }
                 }
             }
