@@ -1,36 +1,19 @@
 class Solution {
    public boolean isValid(String s) {
-    int len=s.length();
-    if(len%2!=0){
-        return false;
-    }
-   
-    char stack[]=new char[len/2];
-    int head=0;
-    for(char ch:s.toCharArray()){
-        if(ch=='('){
-      if(head>=len/2){
-        return false;
-      }
-            stack[head++]=')';
-        }else if(ch=='{'){
-      if(head>=len/2){
-        return false;
-      }
-            stack[head++]='}';
+    int balance=0;
+    StringBuilder sb=new StringBuilder(s);
+    for(int i=1;i<sb.length();i++){
+        if(i==0){
+            continue;
         }
-        else if(ch=='['){
-      if(head>=len/2){
-        return false;
-      }
-            stack[head++]=']';
-        }else {
-            if(head==0||stack[--head]!=ch){
-                return false;
-            }
+        char current=sb.charAt(i);
+        char prev=sb.charAt(i-1);
+        if((current==')' && prev=='(')||(current==']' && prev=='[')||(current=='}' && prev=='{')){
+            sb.deleteCharAt(i);
+            sb.deleteCharAt(i-1);
+            i-=2;
         }
     }
-    return head==0;
+    return sb.length()==0;
    }
 }
-        
