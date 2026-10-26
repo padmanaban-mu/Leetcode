@@ -1,0 +1,33 @@
+class Solution {
+    static int m;
+    static int n;
+    public int countIslands(int[][] grid, int k) {
+         m=grid.length;
+         n=grid[0].length;
+        boolean visited[][]=new boolean[m][n];
+        int count=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]!=0 &&!visited[i][j]){
+               long sum=findSolution(grid,i,j,visited);
+                if(sum%k==0){
+                    count++;
+                }
+                }
+            }
+       }
+       return count;
+    }
+    public static long findSolution(int [][]grid,int i,int j,boolean visited[][]){
+        if(i<0||j<0||i>=m||j>=n||grid[i][j]==0||visited[i][j]){
+            return 0;
+        }
+        visited[i][j]=true;
+        long sum=grid[i][j];
+        sum+=findSolution(grid,i+1,j,visited);
+        sum+=findSolution(grid,i-1,j,visited);
+        sum+=findSolution(grid,i,j+1,visited);
+        sum+=findSolution(grid,i,j-1,visited);
+        return sum;
+    }
+}
