@@ -1,85 +1,49 @@
 # LeetCode Solutions
 
-A personal collection of coding-problem solutions and practice notes, maintained while improving my understanding of data structures, algorithms, and problem-solving.
+This repository is where I keep my coding practice. Most solutions are in Java; I also use C, Python, and SQL for some problems.
 
-Most of the solutions are written in **Java**. The repository also contains a small number of solutions in **C, Python, and SQL**.
+## Folders
 
-## Repository Overview
-
-The repository has two main ways of organizing solutions:
-
-- **Topic-based folders** contain solutions grouped by the concept being practised.
-- **`LeetCode/`** contains problem-wise records, including synced submissions and problem descriptions.
-
-## Topics
-
-| Folder | Focus |
+| Folder | What I practise |
 | --- | --- |
-| [`Arrays`](./Arrays) | Array traversal, searching, and manipulation |
-| [`Strings`](./Strings) | String processing and character operations |
-| [`Trees`](./Trees) | Tree-based problem solving |
-| [`Math`](./Math) | Mathematical and number-based problems |
-| [`Sliding window`](./Sliding%20window) | Subarray and substring window techniques |
-| [`Two Pointers`](./Two%20Pointers) | Two-pointer problem-solving patterns |
-| [`LeetCode`](./LeetCode) | Problem-wise submissions and synced problem records |
+| [Arrays](./Arrays) | Traversal, searching, and array manipulation |
+| [Strings](./Strings) | Character handling and string operations |
+| [Trees](./Trees) | Tree traversal and recursive solutions |
+| [Math](./Math) | Number-based problems |
+| [Sliding window](./Sliding%20window) | Subarray and substring patterns |
+| [Two Pointers](./Two%20Pointers) | Pair and range-based traversal |
+| [LeetCode](./LeetCode) | Problem-wise submissions synced from LeetCode |
+
+The topic folders are for practising a concept. The `LeetCode/` folder keeps individual problem records. The contents change as I solve and revisit problems.
 
 ## Languages
 
-- Java — primary language used in this repository
-- SQL
-- Python
+- Java (main language)
 - C
+- Python
+- SQL
 
-## Directory Structure
+## Submission sync
 
-```text
-Leetcode/
-├── Arrays/
-│   └── <problem-folder>/
-│       └── Solution.java
-├── Strings/
-│   └── <problem-folder>/
-│       └── Solution.java
-├── Trees/
-├── Math/
-├── Sliding window/
-├── Two Pointers/
-├── LeetCode/
-│   └── <problem-slug>/
-│       ├── README.md
-│       └── solution file(s)
-├── .github/
-│   └── workflows/
-│       └── leetcode_sync.yml
-└── README.md
-```
+The GitHub Actions workflow in `.github/workflows/leetcode_sync.yml` uses `joshcai/leetcode-sync` to bring submissions into this repository.
 
-The exact files inside each problem folder vary. LeetCode-provided method signatures may rely on the platform's test harness, so not every solution is designed to run as a standalone Java application.
+- Runs daily at 18:00 UTC (23:30 IST).
+- Can also be started manually from the Actions tab.
+- Uses the repository secrets `LEETCODE_CSRF_TOKEN` and `LEETCODE_SESSION`.
 
-## LeetCode Submission Sync
+These secrets contain session information. Keep them private and never add them to the repository.
 
-This repository includes a GitHub Actions workflow at `.github/workflows/leetcode_sync.yml` to sync LeetCode submissions into the `LeetCode/` directory.
-
-- The workflow is scheduled to run daily at **18:00 UTC (23:30 IST)**.
-- It can also be started manually from the repository's **Actions** tab using `workflow_dispatch`.
-- The workflow uses the `joshcai/leetcode-sync` action.
-
-To use the workflow in another repository, configure the required repository Actions secrets: `LEETCODE_CSRF_TOKEN` and `LEETCODE_SESSION`. GitHub provides the workflow's `GITHUB_TOKEN` automatically.
-
-## Clone the Repository
+## Clone
 
 ```bash
 git clone https://github.com/padmanaban-mu/Leetcode.git
 cd Leetcode
 ```
 
-Browse the topic folders to explore individual solutions. To compile and run a Java file locally, check its class name and whether it includes a `main` method; LeetCode submissions often use the method signature provided by the platform instead.
+Many LeetCode Java submissions use the method signature and test harness provided by the platform, so a file may not have its own `main` method. Check the individual solution before trying to run it as a standalone program.
 
-## Purpose
+## Why I maintain this repository
 
-This repository is an ongoing record of my coding practice. I add solutions as I work through problems, revisit approaches, and learn new problem-solving patterns. The goal is consistent practice and a better understanding of the reasoning behind each solution—not simply collecting accepted submissions.
+I use it to practise consistently, revisit approaches, and get better at recognising patterns. A problem being added here does not mean the topic is complete; this is an ongoing learning record.
 
-## Profile
-
-- GitHub: [@padmanaban-mu](https://github.com/padmanaban-mu)
-- Repository: [Leetcode](https://github.com/padmanaban-mu/Leetcode)
+[GitHub profile](https://github.com/padmanaban-mu)
