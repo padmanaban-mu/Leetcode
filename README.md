@@ -1,45 +1,37 @@
-# LeetCode Solutions & DSA Practice
+# LeetCode Solutions
 
-A personal, evolving collection of coding-problem solutions and practice notes. The main goal is to strengthen problem-solving, data-structure knowledge, and the ability to explain why an approach works.
+This repository is where I keep my coding practice. Most solutions are in Java; I also use C, Python, and SQL for some problems.
 
-Most solutions are written in **Java**. A smaller number use C, Python, or SQL.
+## Folders
 
-## How the repository is organised
-
-Solutions are maintained in two complementary ways:
-
-- **Topic folders** group exercises by the concept being practised.
-- **`LeetCode/`** stores problem-specific folders, including synced submissions and problem notes where available.
-
-| Folder | Focus |
+| Folder | What I practise |
 | --- | --- |
-| [Arrays](./Arrays) | Traversal, searching, sorting, and in-place updates |
-| [Strings](./Strings) | Character processing and string algorithms |
-| [Trees](./Trees) | Tree traversal and recursive problem solving |
-| [Math](./Math) | Number theory and mathematical problems |
-| [Sliding window](./Sliding%20window) | Contiguous subarray and substring patterns |
+| [Arrays](./Arrays) | Traversal, searching, and array manipulation |
+| [Strings](./Strings) | Character handling and string operations |
+| [Trees](./Trees) | Tree traversal and recursive solutions |
+| [Math](./Math) | Number-based problems |
+| [Sliding window](./Sliding%20window) | Subarray and substring patterns |
 | [Two Pointers](./Two%20Pointers) | Pair and range-based traversal |
-| [LeetCode](./LeetCode) | Problem-wise submissions and synced records |
+| [LeetCode](./LeetCode) | Problem-wise submissions synced from LeetCode |
 
-The exact contents of each folder evolve as new problems are practised.
+The topic folders are for practising a concept. The `LeetCode/` folder keeps individual problem records. The contents change as I solve and revisit problems.
 
 ## Languages
 
-- Java — primary language
+- Java (main language)
 - C
 - Python
 - SQL
 
 ## Submission sync
 
-The workflow at `.github/workflows/leetcode_sync.yml` uses the `joshcai/leetcode-sync` action to synchronise submissions.
+The GitHub Actions workflow in `.github/workflows/leetcode_sync.yml` uses `joshcai/leetcode-sync` to bring submissions into this repository.
 
-- Scheduled run: 18:00 UTC (23:30 IST).
-- Manual run: available through GitHub Actions using `workflow_dispatch`.
-- Required repository Actions secrets: `LEETCODE_CSRF_TOKEN` and `LEETCODE_SESSION`.
-- GitHub supplies the workflow's `GITHUB_TOKEN`.
+- Runs daily at 18:00 UTC (23:30 IST).
+- Can also be started manually from the Actions tab.
+- Uses the repository secrets `LEETCODE_CSRF_TOKEN` and `LEETCODE_SESSION`.
 
-Keep session cookies private. Never place them in source files, commit messages, screenshots, or README content.
+These secrets contain session information. Keep them private and never add them to the repository.
 
 ## Clone
 
@@ -48,19 +40,10 @@ git clone https://github.com/padmanaban-mu/Leetcode.git
 cd Leetcode
 ```
 
-Many LeetCode Java files use the platform-provided method signature and test harness, so they may not include a standalone `main` method. Check the individual solution before compiling it locally.
+Many LeetCode Java submissions use the method signature and test harness provided by the platform, so a file may not have its own `main` method. Check the individual solution before trying to run it as a standalone program.
 
-## Practice approach
+## Why I maintain this repository
 
-For each problem, aim to record:
+I use it to practise consistently, revisit approaches, and get better at recognising patterns. A problem being added here does not mean the topic is complete; this is an ongoing learning record.
 
-1. The key observation and brute-force approach.
-2. The optimised approach and why it works.
-3. Time and space complexity.
-4. Edge cases that could break the implementation.
-
-This repository is a learning record, not a claim that every problem or topic is complete.
-
-## Maintainer
-
-[padmanaban-mu](https://github.com/padmanaban-mu)
+[GitHub profile](https://github.com/padmanaban-mu)
